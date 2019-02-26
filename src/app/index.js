@@ -1,12 +1,26 @@
 import React, {Fragment} from 'react';
 import {connect} from 'react-redux';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import {withStyles} from '@material-ui/core/styles';
 
-const Page = ({routing}) => {
+import Header from './header';
+
+
+const styles = {
+    container: {
+      margin: 10
+    },
+  };
+
+const Page = ({routing, classes}) => {
     const SubPage = routing.page;
         return (
             <Fragment>
-                <header>Brewcalc</header>
-                <SubPage params={routing.params} />
+                <CssBaseline />
+                <Header />
+                <div className={classes.container}>
+                    <SubPage params={routing.params} />
+                </div>
             </Fragment>
         );
 };
@@ -16,4 +30,4 @@ const select = state => ({
 });
 
 
-export default connect(select)(Page);
+export default connect(select)(withStyles(styles)(Page));

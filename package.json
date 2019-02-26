@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^3.9.2",
+    "@material-ui/icons": "^3.0.2",
     "feather-route-matcher": "^3.0.0",
     "homebrewcalc": "^1.0.0",
     "react": "^16.8.3",

@@ -2,6 +2,8 @@ import {doUpdateUrl} from './actionCreators/routing';
 
 
 const initRouting = (store, _window) => {
+    store.dispatch(doUpdateUrl(_window.location.pathname));
+
     _window.addEventListener('popstate', () => {
         store.dispatch(doUpdateUrl(_window.location.pathname));
     });

@@ -1,3 +1,5 @@
+import addIds from '../util/addIds';
+
 const initialState = {
     brewId: null,
     isFetching: false,
@@ -5,6 +7,7 @@ const initialState = {
     brew: null,
     error: false
 };
+
 
 const brewReducer = (state = initialState, action) => {
 
@@ -25,7 +28,11 @@ const brewReducer = (state = initialState, action) => {
     if (action.type === 'FETCH_BREW_COMPLETED') {
         return {
             ...state,
-            brew: action.payload.brew,
+            brew: {
+                ...action.payload.brew,
+                malts: addIds(action.payload.brew.malts),
+                hops: addIds(action.payload.brew.hops),
+            },
             isFetching: false,
             isEditable: true
         };

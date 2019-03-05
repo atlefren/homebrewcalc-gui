@@ -6,7 +6,8 @@ import Paper from '../../components/Paper';
 import BrewDetails from '../../components/BrewDetails';
 import MaltTable from '../../components/MaltTable';
 import HopsTable from '../../components/HopsTable';
-
+import YeastTable from '../../components/YeastTable';
+import AdditivesTable from '../../components/AdditivesTable';
 import {doUpdateBrew} from '../../actionCreators/brew';
 
 
@@ -49,6 +50,15 @@ class BrewPage extends Component {
                         brew={brew} 
                         onChange={this._onChange}
                         readOnly={readOnly}/>
+                    <YeastTable
+                        brew={brew} 
+                        onChange={this._onChange}
+                        readOnly={readOnly}/>
+                    <AdditivesTable
+                        brew={brew} 
+                        onChange={this._onChange}
+                        readOnly={readOnly}/>
+                    
                 </form>
             </Paper>
         );

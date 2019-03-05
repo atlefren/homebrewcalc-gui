@@ -32,6 +32,7 @@ const brewReducer = (state = initialState, action) => {
                 ...action.payload.brew,
                 malts: addIds(action.payload.brew.malts),
                 hops: addIds(action.payload.brew.hops),
+                yeasts: addIds(action.payload.brew.yeasts),
             },
             isFetching: false,
             isEditable: true

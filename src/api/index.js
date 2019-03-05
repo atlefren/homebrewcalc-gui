@@ -51,7 +51,15 @@ const brew1 = {
             "quantity": 4,
             "boil_time": 1
         }
-    ]
+    ],
+    yeasts: [
+        {
+            "type": "dry",
+            "name": "Safale S-04 Dry Ale ",
+            "attenuation": "72"
+        }
+    ],
+    additives: []
 };
 
 const api = (path, method='GET', data={}) => {

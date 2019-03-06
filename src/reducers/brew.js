@@ -1,4 +1,5 @@
 import addIds from '../util/addIds';
+import recalculateBrew from '../util/recalculateBrew';
 
 const initialState = {
     brewId: null,
@@ -48,12 +49,13 @@ const brewReducer = (state = initialState, action) => {
     }
 
     if (action.type === 'UPDATE_BREW' && action.payload.brewId === state.brewId) {
+        const newBrew =  {
+            ...state.brew,
+            [action.payload.prop]: action.payload.value
+        };
         return {
             ...state,
-            brew: {
-                ...state.brew,
-                [action.payload.prop]: action.payload.value
-            }
+            brew: recalculateBrew(newBrew)
         };
     }
 

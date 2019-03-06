@@ -1,8 +1,7 @@
 import React from 'react';
-import Grid from '@material-ui/core/Grid';
 
-import Fieldset from './Fieldset';
-import EditableTable from './EditableTable';
+import IngredientList from './IngredientList';
+import ResultTable from './ResultTable';
 
 const yeastColumns = [
     {id: 'name', name: 'Yeast name', align:'left'},
@@ -10,16 +9,19 @@ const yeastColumns = [
     {id: 'type', name: 'Form', align:'left'}
 ];
 
+const attribs = [
+    {id: 'computedFg', name: 'FG'},
+    {id: 'computedAbv', name: 'ABV', suffix: '%'},
+];
+
 const YeastTable = ({brew}) => (
-    <Fieldset title={'Yeast'}>
-        <Grid container spacing={0}>
-            <Grid item sm={8} xs={8}>
-                <EditableTable 
-                data={brew.yeasts}
-                columns={yeastColumns}/>
-            </Grid>
-        </Grid>
-    </Fieldset>
+    <IngredientList 
+        title={'Yeast'} 
+        ingredient={'yeasts'}
+        columns={yeastColumns}
+        brew={brew}>
+        <ResultTable brew={brew} attribs={attribs}/>
+    </IngredientList>
 );
 
 export default YeastTable;

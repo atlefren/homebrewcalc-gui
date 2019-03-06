@@ -11,7 +11,7 @@ const getFloat = (prevValue, value) => {
     const parsed = parseFloat(value);
     return isNaN(parsed)
         ? prevValue
-        : value;
+        : parsed;
 }
 
 

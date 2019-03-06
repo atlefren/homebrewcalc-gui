@@ -1,8 +1,5 @@
 import React from 'react';
-import Grid from '@material-ui/core/Grid';
-
-import Fieldset from './Fieldset';
-import EditableTable from './EditableTable';
+import IngredientList from './IngredientList';
 
 const additivesColumns = [
     {id: 'quantity', name: 'Qty (g)', align:'right'},
@@ -12,15 +9,11 @@ const additivesColumns = [
 ];
 
 const AdditivesTable = ({brew}) => (
-    <Fieldset title={'Other Additives'}>
-        <Grid container spacing={0}>
-            <Grid item sm={8} xs={8}>
-                <EditableTable 
-                data={brew.additives}
-                columns={additivesColumns}/>
-            </Grid>
-        </Grid>
-    </Fieldset>
+    <IngredientList
+        title={'Other Additives'} 
+        ingredient={'additives'}
+        brew={brew}
+        columns={additivesColumns}/>
 );
 
 export default AdditivesTable;

@@ -33,7 +33,7 @@ class BrewPage extends Component {
         }
 
         const readOnly = false;
-
+        console.log(brew)
         return (
             <Paper>
                 <Typography variant="h5">{brew.name !== '' ? brew.name : 'Unnamed brew'}</Typography>

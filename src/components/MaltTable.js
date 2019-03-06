@@ -1,8 +1,8 @@
 import React from 'react';
-import Grid from '@material-ui/core/Grid';
 
-import Fieldset from './Fieldset';
-import EditableTable from './EditableTable';
+import IngredientList from './IngredientList';
+import ResultTable from './ResultTable';
+import getHexForEbc from '../util/getHexForEbc';
 
 const maltColumns = [
     {id: 'quantity', name: 'Qty (g)', align:'right'},
@@ -12,16 +12,19 @@ const maltColumns = [
     {id: 'color', name: 'Color (EBC)', align:'right'},
 ];
 
+const attribs = [
+    {id: 'computedOg', name: 'OG'},
+    {id: 'computedColor', name: 'Color (EBC)', bgColor: getHexForEbc}
+];
+
+
 const MaltTable = ({brew}) => (
-    <Fieldset title={'Malts & Sugars'}>
-        <Grid container spacing={0}>
-            <Grid item sm={8} xs={8}>
-                <EditableTable 
-                data={brew.malts}
-                columns={maltColumns}/>
-            </Grid>
-        </Grid>
-    </Fieldset>
-);
+    <IngredientList
+        title={'Malts & Sugars'}
+        ingredient={'malts'}
+        columns={maltColumns}
+        brew={brew}>
+            <ResultTable brew={brew} attribs={attribs}/>
+        </IngredientList>);
 
 export default MaltTable;

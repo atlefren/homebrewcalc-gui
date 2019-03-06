@@ -1,27 +1,27 @@
 import React from 'react';
-import Grid from '@material-ui/core/Grid';
 
-import Fieldset from './Fieldset';
-import EditableTable from './EditableTable';
+import IngredientList from './IngredientList';
+import ResultTable from './ResultTable';
 
 const hopColumns = [
     {id: 'quantity', name: 'Qty (g)', align:'right'},
     {id: 'name', name: 'Hop name', align:'left'},
-    {id: 'alpha_acid', name: 'α Acid', align:'right'},
+    {id: 'alphaAcid', name: 'α Acid', align:'right'},
     {id: 'form', name: 'Form', align:'left'},
-    {id: 'boil_time', name: 'Boil Time (m)', align:'right'},
+    {id: 'boilTime', name: 'Boil Time (m)', align:'right'},
+];
+
+const attribs = [
+    {id: 'computedIbu', name: 'IBU'}
 ];
 
 const HopsTable = ({brew}) => (
-    <Fieldset title={'Hops'}>
-        <Grid container spacing={0}>
-            <Grid item sm={8} xs={8}>
-                <EditableTable 
-                data={brew.hops}
-                columns={hopColumns}/>
-            </Grid>
-        </Grid>
-    </Fieldset>
-);
+    <IngredientList
+        title={'Hops'}
+        ingredient={'hops'}
+        columns={hopColumns}
+        brew={brew}>
+        <ResultTable brew={brew} attribs={attribs}/>
+    </IngredientList>);
 
 export default HopsTable;

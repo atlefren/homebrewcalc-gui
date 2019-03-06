@@ -33,23 +33,23 @@ const brew1 = {
         {
             "form": "pellets",
             "name": "Cascade (U.S.)",
-            "alpha_acid": 5.8,
+            "alphaAcid": 5.8,
             "quantity": 5,
-            "boil_time": 90
+            "boilTime": 90
         },
         {
             "form": "pellets",
             "name": "Galena",
-            "alpha_acid": 13,
+            "alphaAcid": 13,
             "quantity": 4,
-            "boil_time": 10
+            "boilTime": 10
         },
         {
             "form": "pellets",
             "name": "Galena",
-            "alpha_acid": 13,
+            "alphaAcid": 13,
             "quantity": 4,
-            "boil_time": 1
+            "boilTime": 1
         }
     ],
     yeasts: [
@@ -59,7 +59,12 @@ const brew1 = {
             "attenuation": "72"
         }
     ],
-    additives: []
+    additives: [],
+    "computedOg": 1.051,
+    "computedFg": 1.014,
+    "computedColor": 17,
+    "computedIbu": 27,
+    "computedAbv": 5
 };
 
 const api = (path, method='GET', data={}) => {
